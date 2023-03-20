@@ -1,7 +1,10 @@
+(defvar lst nil)
+(set `lst `(A (B C) (D (E) K L)))
+
+
 (
     defun getK (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get K"
+        "Input list is (A (B C) (D (E) K L)). Get K"
         (CAR
             (CDR
                 (CDR
@@ -17,8 +20,7 @@
 
 (
     defun getE (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get E"
+        "Input list is (A (B C) (D (E) K L)). Get E"
         (CAR
             (CAR
                 (CDR
@@ -34,15 +36,13 @@
 
 (
     defun getA (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get A"
+        "Input list is (A (B C) (D (E) K L)). Get A"
         (CAR lst)
 )
 
 (
     defun getB (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get B"
+        "Input list is (A (B C) (D (E) K L)). Get B"
         (CAR
             (CAR
                 (CDR lst)
@@ -52,8 +52,7 @@
 
 (
     defun getC (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get C"
+        "Input list is (A (B C) (D (E) K L)). Get C"
         (CAR
             (CDR
                 (CAR
@@ -64,24 +63,8 @@
 )
 
 (
-    defun func3 (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get (A B C)"
-        (CONS
-            (getA lst)
-            (CONS (getB lst)
-                (CONS
-                    (getC lst)
-                    nil
-                )
-            )
-        )
-)
-
-(
     defun getD (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get D"
+        "Input list is (A (B C) (D (E) K L)). Get D"
         (CAR
             (CAR
                 (CDR
@@ -93,8 +76,7 @@
 
 (
     defun getL (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get L"
+        "Input list is (A (B C) (D (E) K L)). Get L"
         (CAR
             (CDR
                 (CDR
@@ -111,9 +93,30 @@
 )
 
 (
-    defun func4 (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get (K D L)"
+    defun getBC (lst)
+        "Input list is (A (B C) (D (E) K L)). Get (B C)"
+        (CAR
+            (CDR lst)
+        )
+)
+
+(
+    defun getABC (lst)
+        "Input list is (A (B C) (D (E) K L)). Get (A B C)"
+        (CONS
+            (getA lst)
+            (CONS (getB lst)
+                (CONS
+                    (getC lst)
+                    nil
+                )
+            )
+        )
+)
+
+(
+    defun getKDL (lst)
+        "Input list is (A (B C) (D (E) K L)). Get (K D L)"
         (CONS
             (getK lst)
             (CONS
@@ -127,18 +130,8 @@
 )
 
 (
-    defun getBC (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get (B C)"
-        (CAR
-            (CDR lst)
-        )
-)
-
-(
-    defun func5 (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get ((B C) K)"
+    defun getBCK (lst)
+        "Input list is (A (B C) (D (E) K L)). Get ((B C) K)"
         (CONS
             (getBC lst)
             (CONS
@@ -149,9 +142,8 @@
 )
 
 (
-    defun func6 (lst)
-        "Input list is (A (B C) (D (E) K L))
-            Get (C A K)"
+    defun getCAK (lst)
+        "Input list is (A (B C) (D (E) K L)). Get (C A K)"
         (CONS
             (getC lst)
             (CONS
@@ -163,3 +155,28 @@
             )
         )
 )
+
+
+(print "Output K")
+(print (getK lst))
+(terpri)
+
+(print "Output L")
+(print (getL lst))
+(terpri)
+
+(print "Output (A B C)")
+(print (getABC lst))
+(terpri)
+
+(print "Output (K D L)")
+(print (getKDl lst))
+(terpri)
+
+(print "Output ((B C) K)")
+(print (getBCK lst))
+(terpri)
+
+(print "Output (C A K)")
+(print (getCAK lst))
+(terpri)
