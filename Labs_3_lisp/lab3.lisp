@@ -1,14 +1,30 @@
-(set `lst `(
-        (nil "1" "2" "3" "4" "5" "6" "7")
-        ("1" nil nil nil nil nil nil 20)
-        ("2" nil nil 20 nil nil nil 10)
-        ("3" nil 20 nil 15 nil nil nil)
-        ("4" nil nil 15 nil 5 nil 7)
-        ("5" nil nil nil 5 nil 40 35)
-        ("6" nil nil nil nil 40 nil 12)
-        ("7" 20 10 nil 7 35 12 nil)
+(defvar lst1 nil)
+(defvar lst2 nil)
+
+(set `lst1 `(
+        (nil    "1"     "2"     "3"     "4"     "5"     "6"     "7" )
+        ("1"    nil     nil     nil     nil     nil     nil     20  )
+        ("2"    nil     nil     20      nil     nil     nil     10  )
+        ("3"    nil     20      nil     15      nil     nil     nil )
+        ("4"    nil     nil     15      nil     5       nil     7   )
+        ("5"    nil     nil     nil     5       nil     40      35  )
+        ("6"    nil     nil     nil     nil     40      nil     12  )
+        ("7"    20      10      nil     7       35      12      nil )
     )
 )
+
+(set `lst2 `(
+        (nil    "1"     "2"     "3"     "4"     "5"     "6"     "7" )
+        ("1"    nil     5     nil     nil     nil     nil     20  )
+        ("2"    5     nil     20      nil     nil     nil     10  )
+        ("3"    nil     20      nil     15      nil     nil     nil )
+        ("4"    nil     nil     15      nil     5       nil     7   )
+        ("5"    nil     nil     nil     5       nil     40      35  )
+        ("6"    nil     nil     nil     nil     40      nil     12  )
+        ("7"    20      10      nil     7       35      12      nil )
+    )
+)
+
 
 (
     defun createItem (row-label column-label value)
@@ -146,12 +162,28 @@
 )
 
 
-(print
-    (getTravels nil lst)
-)
-
+(print "List of the distance  1:")
+(print lst1)
 (terpri)
 
-(print
-    (getMinimalTravels lst)
-)
+(print "List of all travels between station:")
+(print (getTravels nil lst1) )
+(terpri)
+
+(print "List of minimal travels in all travels:")
+(print (getMinimalTravels lst1))
+(terpri)
+
+
+(terpri)
+(print "List of the distance  2:")
+(print lst1)
+(terpri)
+
+(print "List of all travels between station:")
+(print (getTravels nil lst2) )
+(terpri)
+
+(print "List of minimal travels in all travels:")
+(print (getMinimalTravels lst2))
+(terpri)
