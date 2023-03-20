@@ -1,3 +1,6 @@
+(defvar lst `(1 2 3 4 5 6 7 8 9))
+
+
 (
     defun getReverse (new old)
     "Return reverse list..."
@@ -37,3 +40,16 @@
         (T (return-from getVariant (getUnionLst nil (getReverse nil new) (getUnionLst nil (getLst nil lst-copy n k 1) lst))))
     )
 )
+
+
+(print "For lst = (1 2 3 4 5 6 7 8 9) N = 3, K = 3, M = 8:")
+(print (getVariant nil lst lst 3 3 8 1))
+(terpri)
+
+(print "For lst = (1 2 3 4 5 6 7 8 9) N = 1, K = 3, M = 8:")
+(print (getVariant nil lst lst 1 3 8 1))
+(terpri)
+
+(print "For lst = (1 2 3 4 5 6 7 8 9) N = 2, K = 7, M = 9:")
+(print (getVariant nil lst lst 2 7 9 1))
+(terpri)
