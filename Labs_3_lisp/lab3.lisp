@@ -15,8 +15,8 @@
 
 (set `lst2 `(
         (nil    "1"     "2"     "3"     "4"     "5"     "6"     "7" )
-        ("1"    nil     5     nil     nil     nil     nil     20  )
-        ("2"    5     nil     20      nil     nil     nil     10  )
+        ("1"    nil     5       nil     nil     nil     nil     20  )
+        ("2"    5       nil     20      nil     nil     nil     10  )
         ("3"    nil     20      nil     15      nil     nil     nil )
         ("4"    nil     nil     15      nil     5       nil     7   )
         ("5"    nil     nil     nil     5       nil     40      35  )
