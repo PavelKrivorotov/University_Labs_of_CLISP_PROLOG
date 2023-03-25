@@ -189,23 +189,23 @@
 (
     defun iterFromLst (new-lst lst stack station-to)
     "Return all travels between station-from station-to."
-    (print "new-lst:")
-    (print new-lst)
-    (terpri)
+    ; (print "new-lst:")
+    ; (print new-lst)
+    ; (terpri)
 
-    (print "lst:")
-    (print lst)
-    (terpri)
+    ; (print "lst:")
+    ; (print lst)
+    ; (terpri)
 
-    (print "stack:")
-    (print stack)
-    (terpri)
+    ; (print "stack:")
+    ; (print stack)
+    ; (terpri)
 
-    (print "station-to:")
-    (print station-to)
-    (terpri)
-    (terpri)
-    (terpri)
+    ; (print "station-to:")
+    ; (print station-to)
+    ; (terpri)
+    ; (terpri)
+    ; (terpri)
 
     (cond
         ; Stack is nil
@@ -518,8 +518,91 @@
     )
 )
 
+(
+    defun getMinimalTravels (new-lst travels-lst)
+    "Return new-lst with minimal travel(s)."
+    (cond
+        (
+            (not travels-lst)
+            new-lst
+        )
+        
+        (
+            (not new-lst)
+            (getMinimalTravels
+                (addToLst
+                    new-lst
+                    (CAR travels-lst)
+                )
+                (CDR travels-lst)
+            )
+        )
+        
+        (
+            (<
+                (CAR
+                    (CDR
+                        (CAR travels-lst)
+                    )
+                )
+                (CAR
+                    (CDR
+                        (CAR new-lst)
+                    )
+                )
+            )
+            (getMinimalTravels
+                (addToLst nil (CAR travels-lst))
+                (CDR travels-lst)
+            )
+        )
+        
+        (
+            (equal
+                (CAR
+                    (CDR
+                        (CAR travels-lst)
+                    )
+                )
+                (CAR
+                    (CDR
+                        (CAR new-lst)
+                    )
+                )
+            )
+            (getMinimalTravels
+                (addToLst new-lst (CAR travels-lst))
+                (CDR travels-lst)
+            )
+        )
+        
+        (
+            T
+            (getMinimalTravels
+                new-lst
+                (CDR travels-lst)
+            )
+        )
+    )
+)
+
 
 
 (print
+    "ALL travels:"
+)
+(print
     (getTravels lst1 "5" "3")
+)
+
+
+(terpri)
+(print
+    "Minimal travels:"
+)
+(print
+    (getMinimalTravels
+        nil
+        (getTravels lst1 "5" "3")
+    )
 )
